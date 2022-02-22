@@ -11,7 +11,10 @@ router.post(
   roleMidd.existingRole,
   userController.registerUser
 );
-
-router.get("/listUser", userController.listUser);
-
+//aqui le pongo el parametro name porque es el filtro que hice en listUser
+router.get("/listUser/:name?", userController.listUser);
+router.get("/listUserAdmin/:name?", userController.listUserAdmin);
+router.post("/login", userController.login);
+router.put("/delete/:_id", userController.deleteUser); //aqui tiene que ir obligatoriamente el id
+router.put("/updateUserAdmin", userController.updateUserAdmin);
 export default router;
